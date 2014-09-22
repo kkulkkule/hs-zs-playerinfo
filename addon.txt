@@ -1,0 +1,11 @@
+"AddonInfo"
+{
+	"name"				"Honsal Zombie Survival Player Info Module"
+	"version"			"1.00"
+	"up_date"			"09/22/14"
+	"author_name"			"[KOR]È¥»ì"
+	"author_email"			"honjasalayo@gmail.com"
+	"author_url"			"http://honsal.tistory.com/"
+	"info"				"Player information module of Honsal's Zombie Survival server."
+	"override"			"0"
+}
