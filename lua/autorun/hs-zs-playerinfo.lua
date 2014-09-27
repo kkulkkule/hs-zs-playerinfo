@@ -1,1 +1,3 @@
-include("hs-zs-playerinfo/init.lua")
+if SERVER then
+    include("hs-zs-playerinfo/init.lua")
+end
