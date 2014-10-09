@@ -1,12 +1,17 @@
 HSZSPlayerInfo.DB = {}
 
+local sql = sql
+
 local db = HSZSPlayerInfo.DB
 
 function db.Query(s)
+    local lasterror, currenterror
     sql.Begin()
+        lasterror = sql.LastError()
         sql.Query(s)
+        currenterror = sql.LastError()
     sql.Commit()
-    return sql.LastError()
+    return (lasterror ~= currenterror) and currenterror or "NO ERROR"
 end
 
 function db.TableExists(s)
@@ -69,4 +74,11 @@ function db.Init()
     end
 end
 
-db.Init()
+function db.AddNewAchievementColumn(col, comment) // 새로운 어치브먼트 추가시 사용할 함수
+    if !comment then
+        comment = "NO COMMENT"
+    end
+    print("NEW COLUMN ADDED( " .. col .. " ): " ..
+        db.Query("ALTER TABLE HSZSPlayerAchievementsInfo ADD COLUMN " .. col .. " INTEGER DEFAULT 0 /* " .. comment .. " */")
+    )
+end
