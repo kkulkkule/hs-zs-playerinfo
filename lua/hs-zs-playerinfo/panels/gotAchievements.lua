@@ -61,6 +61,10 @@ function PANEL:MakeBody()
     p:SetContentAlignment(5)
 end
 
+function PANEL:SetBody(body)
+    self.Body:SetText(body)
+end
+
 function PANEL:MakeFooter()
     local p = vgui.Create("DPanel", self)
     p:SetPos(0, self:GetTall() - 16)
